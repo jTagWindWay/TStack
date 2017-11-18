@@ -42,8 +42,24 @@ public:
 		if (isEmpty())
 			throw - 1;
 		mas[Size] = a;
-		size++;
+		Size++;
 	}
 	
+	T Top()cons{
+		if (isEmpty())
+		    throw - 1;
+		Size--;
+		return mas[Size];
+	}
 
+	T Pop(){
+		if (isEmpty())
+			throw - 1;
+		Size--;
+		return mas[Size];
+	}
+
+	void Clear(){
+		Size = 0;
+	}
 };
