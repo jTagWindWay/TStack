@@ -1,4 +1,11 @@
 #pragma once
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+
 
 template <class T>
 class TStack {
@@ -11,13 +18,13 @@ private:
 
 public:
 
-	TStack(_MaxSize = 100) {
+	TStack(int _MaxSize = 15) {
 		MaxSize = _MaxSize;
 		Size = 0;
 		mas = new T[MaxSize];
 	}
 
-	TStack(const TSctack&ts) {
+	TStack(const TStack & ts) {
 		MaxSize = ts.MaxSize;
 		Size = ts.Size;
 		mas = new T[ts.MaxSize];
@@ -27,23 +34,43 @@ public:
 	}
 
 	~TStack() {
-		delete[]mas;
+		delete [] mas;
 	}
 
 	bool isEmpty() {
-		return Size==0;
+		if (Size == 0)
+		return true;
+		else
+			return false;
 	}
 
 	bool isFull() {
-		return Size=MaxSize;
+		if (Size == MaxSize)
+		return true;
+		else
+			return false;
 	}
 
 	void Push(T a) {
-		if (isEmpty())
-			throw - 1;
+		if (isFull())   throw 1;
 		mas[Size] = a;
-		size++;
+		Size++;
+	}
+
+	T Pop() {
+		if (isEmpty())  throw  2;
+			Size--;
+			return mas[Size];
+		
+	}
+
+	T Top()  {
+		if (isEmpty())  throw 3;
+		return mas[Size - 1];
 	}
 	
+	void clearTStack() {
+		Size = 0;
+	}
 
 };
