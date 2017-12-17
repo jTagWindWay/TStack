@@ -55,6 +55,7 @@ public:
 		if (isFull())   throw 1;
 		mas[Size] = a;
 		Size++;
+<<<<<<< HEAD
 	}
 
 	T Pop() {
@@ -73,4 +74,7 @@ public:
 		Size = 0;
 	}
 
+	void Clear(){
+		Size = 0;
+	}
 };
